@@ -26,26 +26,43 @@ export { demo };
 
 // Exercise 1:
 // Create and export a variable "year" containing the year of the course
+const { year } = ourCourse;
+export { year };
 
 // Exercise 2:
 // Create and export a variable "courseTitle" containing the title of the course
+const { title: courseTitle } = ourCourse;
+export { courseTitle };
 
 // Exercise 3:
 // Create and export an object "shortCourseInfo" containing only the title and the year of the course
+const { teachers, school, ...shortCourseInfo } = ourCourse;
+export { shortCourseInfo };
 
 // Exercise 4:
 // Create and export an object "extendedCourseInfo" containing everything from "ourCourse" but with the school address from "schoolAddress" inside the property "school"
+const extendedCourseInfo = {
+  ...ourCourse,
+  school: { ...ourCourse.school, ...schoolAddress },
+};
+export { extendedCourseInfo };
 
 // Exercise 5:
 // Create and export the following variables:
 // 'firstTeacher' with the value of "Staicy"
 // 'otherTeachers' as an array containing the other teachers except Staicy
+const [firstTeacher, ...otherTeachers] = teachers;
+export { firstTeacher, otherTeachers };
 
 // Exercise 6:
 // Write and export a function 'printTeachers' that uses console.log() to print "Ernst Ulrich Ralf"
+export const printTeachers = () => console.log(...otherTeachers);
 
 // Exercise 7:
 // Create and export a new array 'allTeachers' containing all teachers of the course AND a new teacher "Thomas" as first entry
+export const allTeachers = ["Thomas", ...teachers];
 
 // Exercise 8:
 // Create and export a variable 'schoolName' containing the name of the school
+const { name: schoolName } = school;
+export { schoolName };
